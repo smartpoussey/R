@@ -1,0 +1,14 @@
+Max z=200x + 150y + 150z
+Constraints
+10x+3y+10x<=100
+5x+5y+5z<=60
+require(lpSolve)
+o=c(200,150,150)
+c1=c(10,3,10)c2=c(5,5,5)
+r1=100
+r2=60
+install.packages("optimsimplex")
+//install package for
+library(optimsimplex)
+library(boot)
+simplex(a=o,A1=rbind(c1,c2),b1=c(r1,r2),maxi=T) 
