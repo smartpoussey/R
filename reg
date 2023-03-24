@@ -1,0 +1,20 @@
+read.delim(file.choose(),header=T)
+attach(LungCapData)
+names(LungCapData)
+print(LungCapData)
+class(Age)
+class(LungCap)
+plot(Age,LungCap,main=&quot;scatterplot&quot;)
+cor(Age,LungCap)
+help(lm)
+?lm
+mod &lt;- lm(LungCap ~ Age)
+summary(mod)
+
+attributes(mod)
+mod$coefficients
+anova(mod)
+plot(Age,LungCap,main=&quot;Scatterplot&quot;)
+abline(mod)
+abline(mod,col=2,lwd=3)
+confint(mod,level=0.99)
