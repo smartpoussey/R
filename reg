@@ -1,20 +1,12 @@
-read.delim(file.choose(),header=T)
-attach(LungCapData)
-names(LungCapData)
-print(LungCapData)
-class(Age)
-class(LungCap)
-plot(Age,LungCap,main=&quot;scatterplot&quot;)
-cor(Age,LungCap)
-help(lm)
-?lm
-mod &lt;- lm(LungCap ~ Age)
-summary(mod)
-
-attributes(mod)
-mod$coefficients
-anova(mod)
-plot(Age,LungCap,main=&quot;Scatterplot&quot;)
-abline(mod)
-abline(mod,col=2,lwd=3)
-confint(mod,level=0.99)
+x <- c(5.1,5.5,5.8,6.1,6.4,6.7,6.4,6.1,5.10,5.7) 
+y<-c(63,66,69,72,75,78,75,72,69,66)
+relation<-lm(y~x)
+summary(relation)
+//now to find the weight of the person with height 170
+a<-data.frame(x=6.3)
+result<-predict(relation,a)
+print(result)
+//this is how we use linear regression to predict
+valuesattributes(relation)
+coefficients(relation)
+abline(relation)
