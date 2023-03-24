@@ -1,0 +1,79 @@
+R LAB
+ Import csv file –
+install.packages(&quot;tidyverse&quot;)
+library(tidyverse)
+
+csv_file &lt;- read.csv(&quot;plurals.csv&quot;)
+ Anova –
+group1 &lt;- c(2,3,4,5,6)
+group2 &lt;- c(7,8,9,10,11)
+group3 &lt;- c(12,13,14,15,16)
+combined_group &lt;-
+data.frame(cbind(group1,group2,grou
+p3))
+print(combined_group)
+stacked_group =
+stack(combined_group)
+anova_results = aov(values ~ ind,
+data=stacked_group)
+print(anova_results)
+summary(combined_group)
+
+summary(stacked_group)
+summary(anova_results)
+
+ Linear regression-
+LungCapData &lt;-
+read.delim(file.choose(),header=T)
+attach(LungCapData)
+names(LungCapData)
+print(LungCapData)
+class(Age)
+class(LungCap)
+plot(Age,LungCap,main=&quot;scatterplot&quot;)
+cor(Age,LungCap)
+help(lm)
+?lm
+mod &lt;- lm(LungCap ~ Age)
+summary(mod)
+
+attributes(mod)
+mod$coefficients
+anova(mod)
+plot(Age,LungCap,main=&quot;Scatterplot&quot;)
+abline(mod)
+abline(mod,col=2,lwd=3)
+confint(mod,level=0.99)
+ LPP-
+#max z= 20x1 + 60x2
+#sub to
+#30x1+20x2&lt;=2700
+#5x1+10x2&lt;=850
+#x1+x2&lt;=95
+#x1&gt;=0,x2&gt;=0
+install.packages(&quot;lpSolve&quot;)
+library(lpSolve)
+
+obj.fun &lt;- c(20,60)
+constr &lt;- matrix(c(30,20,5,10,1,1),
+ncol=2, byrow=TRUE)
+constr.dir &lt;- c(&quot;&lt;=&quot;,&quot;&lt;=&quot;,&quot;&lt;=&quot;)
+rhs &lt;- c(2700,850,95)
+prod.sol &lt;-
+lp(&quot;max&quot;,obj.fun,constr,constr.dir,rhs,co
+mpute.sens = TRUE)
+prod.sol$solution
+ Assignment problem
+
+library(lpSolve)
+assign.costs=matrix(c(11,8,9,14,10,12,6,11
+,7),3,3)
+assign.costs
+lp.assign(assign.costs)
+#Success: the objective function is 25
+
+lp.assign(assign.costs)$solution
+# [,1] [,2] [,3]
+[1,] 0 0 1
+[2,] 0 1 0
+[3,] 1 0 0
